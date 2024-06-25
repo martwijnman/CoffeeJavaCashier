@@ -11,6 +11,7 @@ class CoffeeStorage {
     String nameOfCoffee;
     String coffeeType;
     String coffeeSize;
+    public double priceToPay;
     double coffeePrice;
 
     public CoffeeStorage(String nameOfCoffee, String coffeeType, String coffeeSize, double coffeePrice) {
@@ -78,10 +79,10 @@ class MyFrame extends JFrame {
                 try {
                     int aantal = Integer.parseInt(textFieldAantal.getText());
                     double price = getPriceForSelectedCoffeeType();
-                    double totalPrice = aantal * price;
-                    labelPrice.setText("Prijs: €" + totalPrice);
-                    saveToFile("storage.csv", textFieldAantal, comboBoxType, totalPrice);
-                    JOptionPane.showMessageDialog(null, "Gegevens opgeslagen!");
+                    double priceToPay = aantal * price;
+                    labelPrice.setText("Prijs: €" + priceToPay);
+                    saveToFile("storage.csv", textFieldAantal, comboBoxType, priceToPay);
+                            JOptionPane.showMessageDialog(null, "Gegevens opgeslagen!");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Fout bij opslaan: " + ex.getMessage());
                 }
